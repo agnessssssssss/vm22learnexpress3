@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 
 router.get('/', (req, res) => {
-    if(!fs.existsSync('movie.json')){
+    if(!fs.existsSync('movies.json')){
 let json = {
     lastId: 0,
     movies: []
