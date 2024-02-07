@@ -1,0 +1,17 @@
+{
+  "name": "vm22learnexpress-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon -e js,json,njk"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "nunjucks": "^3.2.4"
+  }
+}
