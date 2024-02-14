@@ -1,7 +1,7 @@
 {% extends "partials/layout.njk" %}
 {% block title %}Add movie {%endblock%}
 {% block content %}
-  <form method="post">
+  <form action="/movies/add" method="post">
     <input type="text" placeholder="Movie name" name="movie">
     <input type="number" placeholder="Movie year" name="year">
     <textarea name="description" placeholder="Movie description"></textarea>
