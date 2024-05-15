@@ -18,5 +18,8 @@
     "nunjucks": "^3.2.4",
     "sequelize": "^6.37.1",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
   }
 }
