@@ -4,14 +4,21 @@ const app = express();
 const port = 3000;
 const cookieParser = require('cookie-parser');
 const {Movie, User} = require('./models/index.js');
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 
 app.use(cookieParser());
 
 app.use(express.static('public'));
 
 const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 app.use(session({
-  secret: 'secret'
+  store: new FileStore(),
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
 }));
 
 app.use(express.urlencoded({
@@ -21,9 +28,6 @@ app.use(express.urlencoded({
 const env = nunjucks.configure('views', {
     autoescape: true,
     express: app
-});
-app.use((req, res, next) => {
-env.addGlobal('user', req.session.user);
 });
 
 app.use((req, res, next) => {
@@ -45,13 +49,13 @@ app.get('/', async (req, res) => {
   for(let i = 1; i<=3; i++){
       elements[i] = i;
   }
-  if(page > 1){
+  if(page > 2){
     elements.push('...');
   }
   for(let i = page-2; i<=page+2 && i<=pages && i>0; i++){
     elements[i] = i;
   }
-  if(page< pages-2){
+  if(page < pages-2){
     elements.push('...');
   }
   for(let i = pages-2; i<=pages; i++){
