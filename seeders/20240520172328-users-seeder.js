@@ -6,8 +6,8 @@ const { faker } = require('@faker-js/faker');
 module.exports = {
   async up (queryInterface, Sequelize) {
     await User.create({
-      name: 'Agnes Aus',
-      email: 'agnes.aus7@gmail.com',
+      name: 'Kaspar Martin Suursalu',
+      email: 'kasparsu@gmail.com',
       password: bcrypt.hashSync('password', 12)
     });
 
